@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-""" a python script that generate Pascal's triangle
-up to the specified number of rows.
+""" a python scripting that generates  triangle
+up to the specified numbers of rows.
 """
 
 
 def pascal_triangle(num_rows):
     """
-    Generate Pascal's triangle up to the specified number of rows.
+    Generating Pascal's triangle up to the specified number of rows.
 
     Args:
         num_rows (int): The number of rows for Pascal's triangle.
 
     Returns:
-        list of lists: A list of lists representing Pascal's triangle.
+        listing of lists: A list of lists representing Pascal's triangle.
     """
     if num_rows <= 0:
         return []

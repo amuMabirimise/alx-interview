@@ -1,29 +1,19 @@
+#!/usr/bin/python3
+"""python lockboxes"""
+
+
 def canUnlockAll(boxes):
-    n = len(boxes)
-    if n == 0:
-        return False
+    """Function determines if all the boxes can be opened"""
+    box_unlock = []
 
-    visited = set()
-    visited.add(0)
-
-    queue = [0]
-
-    while queue:
-        current_box = queue.pop(0)
-        for key in boxes[current_box]:
-            if key < n and key not in visited:
-                visited.add(key)
-                queue.append(key)
-
-    return len(visited) == n
-
-if __name__ == "__main__":
-    boxes1 = [[1], [2], [3], [4], []]
-    print(canUnlockAll(boxes1))  
-
-    boxes2 = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]
-    print(canUnlockAll(boxes2))  
-
-    boxes3 = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]
-    print(canUnlockAll(boxes3))  
-
+    for key, box in enumerate(boxes):
+        if len(box) == 0 or key == 0:
+            if key not in box_unlock:
+                box_unlock.append(key)
+        for k in box:
+            if k < len(boxes) and k != key:
+                if k not in box_unlock:
+                    box_unlock.append(k)
+        if len(box_unlock) == len(boxes):
+            return True
+    return False
